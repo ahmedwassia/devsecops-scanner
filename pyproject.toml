@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devsecops-scanner"
+version = "0.1.0"
+description = "A local-first DevSecOps vulnerability scanner for source, secrets, and dependencies."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+  "click>=8.1,<9",
+  "jinja2>=3.1,<4",
+  "packaging>=23.2",
+  "PyYAML>=6.0",
+  "rich>=13.7,<15",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0,<9"]
+
+[project.scripts]
+devsecops-scanner = "devsecops_scanner.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["devsecops_scanner*"]
+
+[tool.setuptools.package-data]
+"devsecops_scanner.sca" = ["advisories.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

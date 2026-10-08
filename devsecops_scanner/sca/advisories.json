@@ -1,0 +1,26 @@
+[
+  {
+    "cve": "CVE-2018-18074",
+    "package": "requests",
+    "affected_versions": ["2.19.1", "2.19.0", "2.18.4"],
+    "fixed_version": "2.20.0",
+    "severity": "HIGH",
+    "title": "Requests leaks authorization headers on redirect"
+  },
+  {
+    "cve": "CVE-2021-33503",
+    "package": "urllib3",
+    "affected_versions": ["1.25.10", "1.25.9", "1.26.4"],
+    "fixed_version": "1.26.5",
+    "severity": "HIGH",
+    "title": "urllib3 vulnerable to regular expression denial of service"
+  },
+  {
+    "cve": "CVE-2022-40897",
+    "package": "setuptools",
+    "affected_versions": ["65.5.0"],
+    "fixed_version": "65.5.1",
+    "severity": "MEDIUM",
+    "title": "setuptools package index URL parsing denial of service"
+  }
+]

@@ -1,0 +1,22 @@
+services:
+  scanner:
+    build: .
+    user: "${SCANNER_UID:-1000}:${SCANNER_GID:-1000}"
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    volumes:
+      - .:/src:ro
+      - ./reports:/reports
+    command:
+      - scan
+      - --path
+      - /src
+      - --output
+      - /reports/security-report.html
+      - --fail-on
+      - high
+      - --exclude
+      - tests/**
